@@ -1,0 +1,12 @@
+{
+  "name"         : "Manga-Reader-Scraper",
+  "version"      : "0.0.1",
+  "description"  : "Scrape managareader.",
+  "main"         : "server.js",
+  "author"       : "Kyne Atekwana",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest"
+  }
+}
