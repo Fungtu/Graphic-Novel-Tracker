@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+  font-family: Georgia;
+}
+body {
+  background-color: #65737e;
+}
+
+table {
+  border-collapse: collapse;
+
+}
+table, th, tr, td {
+    border: 1px solid black;
+}

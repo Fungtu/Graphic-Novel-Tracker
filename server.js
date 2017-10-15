@@ -22,7 +22,7 @@ app.get('/scrape', function(req, res){
 
 	        $('#main > article > div > div.manga_detail > div.detail_list > ul:nth-child(3) > li:nth-child(1) > span.left > a').filter(function(){
 	        	var currentChap = $(this).text();
-	        	currentChap = currentChap.replace(/\s/g, '');
+	        	currentChap = currentChap.replace(/[^0-9]/ig, "");
 	        	json.currentChap =  currentChap;
 	        })
 	    }
