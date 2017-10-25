@@ -1,14 +1,14 @@
-// creating the map for the manga
+$(document).ready(function() {// creating the map for the manga
 var m = new Map();
 m.set('http://www.mangahere.co/manga/tower_of_god/', ["Tower of God", "250", "222"]);
-// Creating a list for the currently being read mangas
-document.getElementById("myBtn").addEventListener("click", function() {
+//Creating a list for the currently being read mangas
+$("#catch-up").onclick = function() {
 for (var [key, value] of m)
   if (!(value[1]===value[2])) {
     window.open(key);
   }
 
-});
+};
 
 function tableCreate(Map) {
   // creation of the table
@@ -25,7 +25,8 @@ function tableCreate(Map) {
   lChp.appendChild(document.createTextNode("Last chapter read"));
   tableHead.appendChild(lChp);
   table.appendChild(tableHead);
-  //populating the table itself;
+  
+  //populating the table itself
   for (var value of Map.values()) {
     //scrape the html of the key and put it into an array of size 3
     var mangaEntry = document.createElement("tr");
@@ -43,8 +44,45 @@ function tableCreate(Map) {
 
   return table;
 }
+// // Get the modal
+var modal = document.getElementById('myModal');
 
-// Add the contents of options[0] to #foo:
-document.getElementById("mangaTable").appendChild(tableCreate(m));
 
-var provider = new firebase.auth.GoogleAuthProvider();
+// // Get the button that opens the modal
+var btn = document.getElementById("add");
+
+// // Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// // When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+    $("#submit_btn").click(function() {
+      // validate and process form here
+      
+      var manga = $("#manga").val();
+      if (manga == "") {
+        $("#manga_error").show();
+        $("#manga").focus();
+        return false;
+      }
+      var chapter = $("#chapter").val();
+      if (chapter == "") {
+        $("#chapter_error").show();
+        $("#chapter").focus();
+        return false;
+      }
+      m.set(manga, ['lol','lol', chapter])
+    });
+console.log($("#mangaTable"));
+$("#mangaTable").append(tableCreate(m));
+});
+//create the table
+
+// var provider = new firebase.auth.GoogleAuthProvider();
