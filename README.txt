@@ -1,3 +1,4 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/kyne_atekwana/pen/Oxoobm.
+A side project to keep track of all the updated manga that has happened since the last time I have reaad them
+
 
  
